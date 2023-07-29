@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { BookNotFoundException } from 'src/core/errors/BookNotFoundException';
 import { Book } from '../../infra/entities/book.entity';
