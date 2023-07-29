@@ -17,13 +17,13 @@ import {
 } from '@nestjs/swagger';
 import { CreateBookDto } from 'src/book/dto/createBook';
 import { UpdateBookDto } from 'src/book/dto/updateBookDto';
-import { IBookService } from 'src/book/interfaces/book-service.interface';
+import { BookService } from 'src/book/services/book.service';
 import { Book } from 'src/infra/entities/book.entity';
 
 @ApiTags('books')
 @Controller('books')
 export class BookController {
-  constructor(private readonly bookService: IBookService) {}
+  constructor(private readonly bookService: BookService) {}
 
   @ApiOkResponse({ description: 'Successfully retrieved books', type: [Book] })
   @Get()

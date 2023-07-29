@@ -3,11 +3,11 @@ import { Book } from '../entities/book.entity';
 
 export const dataBaseConfig: TypeOrmModuleOptions = {
   type: 'mysql',
-  host: process.env.DB_HOST,
-  port: parseInt(process.env.DB_PORT),
-  username: process.env.DB_USERNAME,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
+  host: 'localhost',
+  port: 3306,
+  username: 'root',
+  password: '',
+  database: 'booksLibrary',
   entities: [Book],
-  synchronize: process.env.DB_SYNC === 'true',
+  synchronize: false,
 };

@@ -1,16 +1,19 @@
-import { BookService } from './book/services/book.service';
 import { Module } from '@nestjs/common';
-import { BookController } from './api/controllers/book.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { BookRepository } from './book/repository/book.repository';
 import { dataBaseConfig } from './infra/database/database.config';
+import { ConfigModule } from '@nestjs/config';
+import { BookModule } from './book/book.module';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+      envFilePath: '.env',
+    }),
     TypeOrmModule.forRoot(dataBaseConfig),
-    TypeOrmModule.forFeature([BookRepository]),
+    BookModule,
   ],
-  controllers: [BookController],
-  providers: [BookService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}

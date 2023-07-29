@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
 import { BookNotFoundException } from 'src/core/errors/BookNotFoundException';
 import { Book } from '../../infra/entities/book.entity';
 import { CreateBookDto } from '../dto/createBook';
@@ -9,10 +8,7 @@ import { BookRepository } from '../repository/book.repository';
 
 @Injectable()
 export class BookService implements IBookService {
-  constructor(
-    @InjectRepository(BookRepository)
-    private bookRepository: BookRepository,
-  ) {}
+  constructor(private bookRepository: BookRepository) {}
 
   async findAll(): Promise<Book[]> {
     return this.bookRepository.findAllBooks();
