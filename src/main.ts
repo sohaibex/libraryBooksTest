@@ -1,11 +1,13 @@
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import { config } from 'dotenv';
+import { config as dotenvConfig } from 'dotenv';
 import { HttpExceptionFilter } from './api/errors/http-exception.filter';
 import { AppModule } from './app.module';
 
-config();
+const envFile = process.env.NODE_ENV === 'prod' ? '.env.production' : '.env';
+dotenvConfig({ path: envFile });
 
+console.log(process.env.DB_TYPE);
 console.log(process.env.DB_HOST);
 console.log(process.env.DB_PORT);
 console.log(process.env.DB_USERNAME);
@@ -23,6 +25,8 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
-  await app.listen(3000);
+  const port = process.env.PORT || 3000;
+  console.log('port', process.env.PORT);
+  await app.listen(port);
 }
 bootstrap();
