@@ -1,8 +1,7 @@
-// src/app/book/repository/book.repository.ts
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Book } from 'src/infra/entities/book.entity';
-import { DeleteResult, Repository } from 'typeorm';
+import { Repository, DeleteResult } from 'typeorm';
+import { Book } from '../../infra/entities/book.entity';
 
 @Injectable()
 export class BookRepository {

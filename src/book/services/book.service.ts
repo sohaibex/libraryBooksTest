@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { BookNotFoundException } from 'src/core/errors/BookNotFoundException';
+import { BookNotFoundException } from '../../core/errors/BookNotFoundException';
 import { Book } from '../../infra/entities/book.entity';
 import { CreateBookDto } from '../dto/createBook';
 import { UpdateBookDto } from '../dto/updateBookDto';

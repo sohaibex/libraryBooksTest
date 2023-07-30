@@ -15,10 +15,10 @@ import {
   ApiOkResponse,
   ApiTags,
 } from '@nestjs/swagger';
-import { CreateBookDto } from 'src/book/dto/createBook';
-import { UpdateBookDto } from 'src/book/dto/updateBookDto';
-import { BookService } from 'src/book/services/book.service';
-import { Book } from 'src/infra/entities/book.entity';
+import { CreateBookDto } from '../../book/dto/createBook';
+import { UpdateBookDto } from '../../book/dto/updateBookDto';
+import { BookService } from '../../book/services/book.service';
+import { Book } from '../../infra/entities/book.entity';
 
 @ApiTags('books')
 @Controller('books')
