@@ -11,9 +11,10 @@ export const getDatabaseConfig = async (
     host: configService.get<string>('DB_HOST'),
     port: Number(configService.get<string>('DB_PORT')),
     username: configService.get<string>('DB_USERNAME'),
-    password: configService.get<string>('DB_PASSWORD'),
+    password: '',
     database: configService.get<string>('DB_DATABASE'),
     entities: [Book],
     synchronize: false,
+    logging: true,
   };
 };

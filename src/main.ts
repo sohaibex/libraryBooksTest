@@ -17,6 +17,11 @@ console.log(process.env.NODE_ENV);
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.useGlobalFilters(new HttpExceptionFilter());
+  app.enableCors({
+    origin: '*', // replace this with your origin
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    allowedHeaders: 'Content-Type, Accept',
+  });
   const config = new DocumentBuilder()
     .setTitle('Library Books Api')
     .setDescription('This is a simple webservice for books library')
